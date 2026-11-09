@@ -1,86 +1,95 @@
-# Java Concepts — Java 8 Learning Repository
+# Learn Java Concepts
 
-A topic-based Java learning repository with separate packages, runnable demonstrations and a guide for each topic. The examples emphasize core Java concepts and their application to maintainable SDET automation frameworks.
+A pure Java learning repository. Each topic lives in its own package under `src/main/java/com/learnjava`, with a focused guide and runnable example. There are no Selenium, TestNG, Rest Assured, or other test-automation framework dependencies.
 
-## Baseline and build
+## Supported baseline
 
-- **Language baseline:** Java 8.
-- **Build:** Maven.
-- **Prerequisites:** JDK 8 or a later JDK capable of compiling Java 8 source; Maven installed.
-- Verify setup with `java -version` and `mvn -version`.
+- **Java 25 LTS** is the default curriculum and compilation baseline.
+- Concepts available since Java 8 remain covered where relevant, with their release history called out.
+- Features introduced after Java 25 are documented separately and must be labelled by release and preview/final status. Preview features are not part of the default build.
+- Verify language rules against the Java Language Specification and API behavior against the Java SE API documentation.
 
-Build/compile the examples:
+## Prerequisites
+
+- JDK 25
+- Maven 3.9+
+- Git
+
+Check your toolchain:
 
 ```bash
-mvn clean test
+java -version
+javac -version
+mvn -version
 ```
 
-Run an example after compilation:
+## Build
 
 ```bash
-java -cp target/classes com.learnjava.collections.CollectionsDemo
+mvn clean verify
 ```
-
-Replace the class name with the fully qualified class in the table. The JDBC example requires the H2 driver to be added to the runtime classpath before it can be executed.
 
 ## Topic index
 
 | Topic | Package | Guide |
 |---|---|---|
-| Java fundamentals | `com.learnjava.basics` | [README](src/main/java/com/learnjava/basics/README.md) |
-| Control flow | `com.learnjava.controlflow` | [README](src/main/java/com/learnjava/controlflow/README.md) |
-| Arrays | `com.learnjava.arrays` | [README](src/main/java/com/learnjava/arrays/README.md) |
-| Methods | `com.learnjava.methods` | [README](src/main/java/com/learnjava/methods/README.md) |
-| Strings | `com.learnjava.strings` | [README](src/main/java/com/learnjava/strings/README.md) |
-| Object-oriented programming | `com.learnjava.oop` | [README](src/main/java/com/learnjava/oop/README.md) |
-| Constructors | `com.learnjava.constructors` | [README](src/main/java/com/learnjava/constructors/README.md) |
-| Interfaces and abstract classes | `com.learnjava.interfaces` | [README](src/main/java/com/learnjava/interfaces/README.md) |
-| Access modifiers and packages | `com.learnjava.accessmodifiers` | [README](src/main/java/com/learnjava/accessmodifiers/README.md) |
-| Collections | `com.learnjava.collections` | [README](src/main/java/com/learnjava/collections/README.md) |
-| Generics | `com.learnjava.generics` | [README](src/main/java/com/learnjava/generics/README.md) |
-| Exceptions | `com.learnjava.exceptions` | [README](src/main/java/com/learnjava/exceptions/README.md) |
-| Enums | `com.learnjava.enums` | [README](src/main/java/com/learnjava/enums/README.md) |
-| Lambdas | `com.learnjava.lambdas` | [README](src/main/java/com/learnjava/lambdas/README.md) |
-| Streams | `com.learnjava.streams` | [README](src/main/java/com/learnjava/streams/README.md) |
-| Optional | `com.learnjava.optional` | [README](src/main/java/com/learnjava/optional/README.md) |
-| Date and time | `com.learnjava.dateandtime` | [README](src/main/java/com/learnjava/dateandtime/README.md) |
-| File handling and NIO | `com.learnjava.filehandling` | [README](src/main/java/com/learnjava/filehandling/README.md) |
-| Regular expressions | `com.learnjava.regex` | [README](src/main/java/com/learnjava/regex/README.md) |
-| Multithreading | `com.learnjava.multithreading` | [README](src/main/java/com/learnjava/multithreading/README.md) |
-| Concurrency utilities | `com.learnjava.concurrency` | [README](src/main/java/com/learnjava/concurrency/README.md) |
-| Annotations | `com.learnjava.annotations` | [README](src/main/java/com/learnjava/annotations/README.md) |
-| Reflection | `com.learnjava.reflection` | [README](src/main/java/com/learnjava/reflection/README.md) |
-| Serialization | `com.learnjava.serialization` | [README](src/main/java/com/learnjava/serialization/README.md) |
-| JDBC | `com.learnjava.jdbc` | [README](src/main/java/com/learnjava/jdbc/README.md) |
-| Networking and HTTP | `com.learnjava.networking` | [README](src/main/java/com/learnjava/networking/README.md) |
-| Design patterns | `com.learnjava.designpatterns` | [README](src/main/java/com/learnjava/designpatterns/README.md) |
-| SOLID principles | `com.learnjava.solidprinciples` | [README](src/main/java/com/learnjava/solidprinciples/README.md) |
-| Wrapper classes | `com.learnjava.wrappers` | [README](src/main/java/com/learnjava/wrappers/README.md) |
-| Nested and inner classes | `com.learnjava.innerclasses` | [README](src/main/java/com/learnjava/innerclasses/README.md) |
-| JVM and garbage collection | `com.learnjava.jvm` | [README](src/main/java/com/learnjava/jvm/README.md) |
+| Java fundamentals and types | `basics` | [Guide](src/main/java/com/learnjava/basics/README.md) |
+| Control flow | `controlflow` | [Guide](src/main/java/com/learnjava/controlflow/README.md) |
+| Arrays | `arrays` | [Guide](src/main/java/com/learnjava/arrays/README.md) |
+| Methods and parameters | `methods` | [Guide](src/main/java/com/learnjava/methods/README.md) |
+| Strings and text processing | `strings` | [Guide](src/main/java/com/learnjava/strings/README.md) |
+| Object-oriented programming | `oop` | [Guide](src/main/java/com/learnjava/oop/README.md) |
+| Constructors and initialization | `constructors` | [Guide](src/main/java/com/learnjava/constructors/README.md) |
+| Interfaces | `interfaces` | [Guide](src/main/java/com/learnjava/interfaces/README.md) |
+| Access modifiers and encapsulation | `accessmodifiers` | [Guide](src/main/java/com/learnjava/accessmodifiers/README.md) |
+| Collections Framework | `collections` | [Guide](src/main/java/com/learnjava/collections/README.md) |
+| Generics | `generics` | [Guide](src/main/java/com/learnjava/generics/README.md) |
+| Exceptions | `exceptions` | [Guide](src/main/java/com/learnjava/exceptions/README.md) |
+| Enums | `enums` | [Guide](src/main/java/com/learnjava/enums/README.md) |
+| Wrapper classes and boxing | `wrappers` | [Guide](src/main/java/com/learnjava/wrappers/README.md) |
+| Lambdas and functional interfaces | `lambdas` | [Guide](src/main/java/com/learnjava/lambdas/README.md) |
+| Stream API | `streams` | [Guide](src/main/java/com/learnjava/streams/README.md) |
+| Optional | `optional` | [Guide](src/main/java/com/learnjava/optional/README.md) |
+| Date and time API | `dateandtime` | [Guide](src/main/java/com/learnjava/dateandtime/README.md) |
+| File handling and NIO.2 | `filehandling` | [Guide](src/main/java/com/learnjava/filehandling/README.md) |
+| Regular expressions | `regex` | [Guide](src/main/java/com/learnjava/regex/README.md) |
+| Multithreading | `multithreading` | [Guide](src/main/java/com/learnjava/multithreading/README.md) |
+| Concurrency utilities | `concurrency` | [Guide](src/main/java/com/learnjava/concurrency/README.md) |
+| Annotations | `annotations` | [Guide](src/main/java/com/learnjava/annotations/README.md) |
+| Reflection | `reflection` | [Guide](src/main/java/com/learnjava/reflection/README.md) |
+| Serialization | `serialization` | [Guide](src/main/java/com/learnjava/serialization/README.md) |
+| JDBC | `jdbc` | [Guide](src/main/java/com/learnjava/jdbc/README.md) |
+| Networking and HTTP client | `networking` | [Guide](src/main/java/com/learnjava/networking/README.md) |
+| Design patterns | `designpatterns` | [Guide](src/main/java/com/learnjava/designpatterns/README.md) |
+| SOLID principles | `solidprinciples` | [Guide](src/main/java/com/learnjava/solidprinciples/README.md) |
+| Nested and inner classes | `innerclasses` | [Guide](src/main/java/com/learnjava/innerclasses/README.md) |
+| JVM, memory model and garbage collection | `jvm` | [Guide](src/main/java/com/learnjava/jvm/README.md) |
 
-## Suggested study sequence
+## How to study each topic
 
-1. Fundamentals, control flow, arrays, methods and strings.
-2. OOP, constructors, interfaces, access control and enums.
-3. Collections, generics, exceptions and wrapper classes.
-4. Lambdas, streams, Optional and date/time.
-5. File handling, regex, annotations, reflection and serialization.
-6. Multithreading, concurrency, JDBC and networking.
-7. Design patterns and SOLID, with SDET-oriented examples.
+1. Read its README from top to bottom.
+2. Inspect every source file in that topic's package. Public top-level types should have their own source files.
+3. Run the demo class named in that topic's README.
+4. Change the example, predict the result, and run it again.
+5. Review the edge cases, trade-offs, and official references.
 
-## How to use each topic
+## Code organization rules
 
-1. Read the topic guide.
-2. Run the demonstration class.
-3. Change inputs and predict the output before running again.
-4. Add boundary cases and failure scenarios.
-5. Explain trade-offs, not only definitions.
+- One top-level class, interface, enum, record, or annotation per `.java` file.
+- Keep each topic's source and guide together in its package.
+- Prefer meaningful domain examples over print-only syntax snippets.
+- Avoid hard-coded machine-specific paths and external services.
+- Keep examples dependency-free unless a topic genuinely requires an external driver or library; document optional dependencies explicitly.
+- Do not put preview language features in the default source tree/build.
+
+## Suggested learning order
+
+Fundamentals → control flow → arrays → methods → strings → OOP → constructors → access modifiers → interfaces → enums → wrappers → collections → generics → exceptions → lambdas → streams → Optional → date/time → file handling → regex → inner classes → annotations → reflection → serialization → multithreading → concurrency → networking → JDBC → SOLID → design patterns → JVM.
 
 ## Official references
 
-- [Oracle Java SE 8 Documentation](https://docs.oracle.com/javase/8/docs/)
-- [Oracle Java Language Tutorials](https://docs.oracle.com/javase/tutorial/java/TOC.html)
-- [Oracle Essential Java Classes — Exceptions, I/O and Concurrency](https://docs.oracle.com/javase/tutorial/essential/TOC.html)
-- [Oracle Java SE 8 Platform Guides](https://docs.oracle.com/javase/8/docs/technotes/guides/)
-- [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)
+- [Java SE 25 Documentation](https://docs.oracle.com/en/java/javase/25/)
+- [Java SE 25 Language Updates](https://docs.oracle.com/en/java/javase/25/language/)
+- [Java Language Specification, Java SE 25](https://docs.oracle.com/javase/specs/jls/se25/html/index.html)
+- [Java SE 25 API Specification](https://docs.oracle.com/en/java/javase/25/docs/api/index.html)
+- [Java SE Specifications and newer releases](https://docs.oracle.com/javase/specs/)
