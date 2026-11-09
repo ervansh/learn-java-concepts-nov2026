@@ -85,7 +85,7 @@ mvn clean verify
 
 ## Suggested learning order
 
-Fundamentals → control flow → arrays → methods → strings → OOP → constructors → access modifiers → interfaces → enums → wrappers → collections → generics → exceptions → lambdas → streams → Optional → date/time → file handling → regex → inner classes → annotations → reflection → serialization → multithreading → concurrency → networking → JDBC → SOLID → design patterns → JVM.
+Fundamentals → control flow → arrays → methods → strings → OOP → constructors → access modifiers → interfaces → modern Java language features → enums → wrappers → collections → generics → exceptions → lambdas → streams → Optional → date/time → file handling → regex → inner classes → annotations → reflection → serialization → multithreading → concurrency → networking → JDBC → SOLID → design patterns → JVM.
 
 ## Official references
 
