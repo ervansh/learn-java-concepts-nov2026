@@ -1,10 +1,14 @@
 package com.learnjava.strings;
-public class StringsDemo {
- public static void main(String[] args) {
-  String a="login", b=new String("login");
-  System.out.println(a==b); System.out.println(a.equals(b));
-  StringBuilder report=new StringBuilder();
-  for(int i=1;i<=3;i++) report.append("Test ").append(i).append(": PASS").append(System.lineSeparator());
-  System.out.println(report);
- }
+
+public final class StringsDemo {
+    private StringsDemo() { }
+    public static void main(String[] args) {
+        String raw = "POST /orders token=secret-value status=401";
+        String sanitized = raw.replaceAll("(?i)(token=)[^\\s]+", "$1[MASKED]");
+        StringBuilder summary = new StringBuilder(64);
+        summary.append("event=").append("order-submit").append("; ").append(sanitized);
+        System.out.println(summary);
+        System.out.println("blank? " + "   ".isBlank());
+        System.out.println("repeat=" + "-".repeat(12));
+    }
 }
