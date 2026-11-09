@@ -8,24 +8,24 @@ Single Responsibility groups code around one reason to change. Open/Closed suppo
 
 ## 2. Core concepts
 
-SOLID is a set of design heuristics, not compiler rules. Avoid one-class-per-method fragmentation. Identify volatile decisions, keep contracts focused and test behavior at abstraction boundaries.
+SOLID is a set of design heuristics, not compiler rules. SRP is about cohesion and reasons to change. OCP is about extension points. LSP includes preconditions, postconditions and invariants. ISP avoids forcing clients to depend on unused operations. DIP reverses source-level dependency direction.
 
 ## 3. Design guidance
 
-The demo illustrates dependency inversion by injecting a channel abstraction. Extend it with focused interfaces and separate implementations, then test behavior at the boundary.
+Apply pragmatically. Avoid one-class-per-method fragmentation. Identify volatile decisions, keep contracts focused, and test behavior at abstraction boundaries. Keep abstractions owned by the policy layer where appropriate.
 
 ## 4. Example walkthrough
 
-OCP does not mean code is never modified. LSP concerns behavioral contracts, not only matching signatures. Overapplying SOLID creates needless indirection.
+The example injects a ReportPublisher abstraction into ReportService. The service owns the high-level policy; ConsolePublisher is a replaceable low-level detail. A production system could add file or remote publishers without changing the service contract.
 
 ## 5. Common mistakes and edge cases
 
-https://martinfowler.com/bliki/DependencyInversionPrinciple.html · https://docs.oracle.com/javase/tutorial/java/concepts/
+OCP does not mean code is never modified. LSP concerns behavioral contracts, not only signatures. Overapplying SOLID creates unnecessary interfaces and indirection.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
 
 ## 7. Official references
 
-undefined
+https://martinfowler.com/bliki/DependencyInversionPrinciple.html · https://docs.oracle.com/javase/tutorial/java/concepts/

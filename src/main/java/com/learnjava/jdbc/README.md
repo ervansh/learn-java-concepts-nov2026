@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-JDBC provides Connection, PreparedStatement, ResultSet, transactions, batching, generated keys and metadata. DataSource is generally preferred for managed/poolable connections. PreparedStatement binds values separately from SQL syntax. Auto-commit commits statements individually unless disabled.
+JDBC architecture, DriverManager/DataSource, Connection, PreparedStatement, ResultSet, transactions, auto-commit, commit/rollback, batching, generated keys, SQL injection prevention and resource lifecycle.
 
 ## 2. Core concepts
 
-Use try-with-resources, parameterized SQL, short transactions and explicit rollback. Do not hardcode credentials. Database driver and schema are environment-specific dependencies.
+DataSource is generally preferred for managed/poolable connections. PreparedStatement binds values separately from SQL syntax. Transactions group operations; auto-commit commits each statement unless disabled. ResultSet is a cursor and must be closed.
 
 ## 3. Design guidance
 
-The demo is an entry point. A real run requires a selected database, JDBC driver, schema and connection settings. Use environment variables for secrets and connection details.
+Use try-with-resources, parameterized SQL, short transactions and explicit rollback. Do not hardcode credentials. Driver and schema are database-specific dependencies.
 
 ## 4. Example walkthrough
 
-Never concatenate untrusted values into SQL. Do not hold connections during user interaction. Source compilation does not prove a configured database or driver works.
+The demo reads connection details from environment variables and uses a parameterized query. A real run requires a JDBC driver, configured database and matching customer table/columns.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/package-summary.html · https://docs.oracle.com/javase/tutorial/jdbc/
+Never concatenate untrusted values into SQL. Do not hold connections across user interaction. Compilation does not prove database connectivity or schema correctness.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/package-summary.html · https://docs.oracle.com/javase/tutorial/jdbc/
