@@ -1,16 +1,31 @@
 # Nested and inner classes
-## Theory
-A nested class is declared within another class. A static nested class does not require an enclosing instance. A non-static member inner class is associated with an instance of its enclosing class and can access its members, including private members.
-## Concepts
-- Static nested and non-static member inner classes.
-- Local classes and anonymous classes.
-- Enclosing instance access and encapsulation.
-## Program
-Run InnerClassesDemo to see a member inner class access the enclosing suite name.
-## SDET use
-Use nested types for small helper implementations tightly coupled to one outer class; avoid exposing implementation-only types as top-level public classes.
-## Pitfalls
-- Creating inner classes when static nested classes are sufficient.
-- Holding unintended references to enclosing instances.
-## Official reference
-[Oracle Nested Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html)
+
+> **Baseline:** Java 25 LTS. Release-specific behavior is identified; preview features are not enabled in the default build.
+
+## 1. Scope
+
+Static nested classes have no enclosing instance. Non-static member inner classes are associated with an enclosing instance. Local and anonymous classes can capture final/effectively-final locals. Lambdas differ in how `this` is interpreted.
+
+## 2. Core concepts
+
+Use static nested classes for helpers without outer-instance needs. Use member inner classes when enclosing access is meaningful. Prefer lambdas for simple functional behavior. Avoid retaining large outer objects accidentally.
+
+## 3. Design guidance
+
+The demo covers nested type structure. Extend it with a static nested result, a member cursor using enclosing state, and a local class capturing an effectively-final variable.
+
+## 4. Example walkthrough
+
+Non-static inner objects retain an enclosing reference. Captured locals must be effectively final. Anonymous-class `this` differs from lambda `this`.
+
+## 5. Common mistakes and edge cases
+
+https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html#jls-8.1.3 · https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
+
+## 6. Run and experiment
+
+From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
+
+## 7. Official references
+
+undefined

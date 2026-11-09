@@ -1,17 +1,31 @@
-# Networking and HTTP
-## Theory
-Java networking APIs support URI/URL handling, sockets and HTTP connections. A client should define connect and read timeouts, handle response status and close/disconnect resources.
-## Concepts
-- URI, URL and connection basics.
-- HTTP methods, status codes and timeouts.
-- Request/response bodies and resource cleanup.
-## Program
-Run NetworkingDemo with network access; it sends a GET request to example.com.
-## SDET use
-This is a low-level overview. For modern API automation, use a dedicated HTTP client such as Rest Assured where appropriate.
-## Pitfalls
-- Requests without timeouts.
-- Not consuming/closing response streams when used.
-- Treating all non-2xx statuses as transport exceptions.
-## Official reference
-[Oracle Networking](https://docs.oracle.com/javase/tutorial/networking/)
+# Networking and HTTP client
+
+> **Baseline:** Java 25 LTS. Release-specific behavior is identified; preview features are not enabled in the default build.
+
+## 1. Scope
+
+URI identifies resources; Java HttpClient supports HTTP/1.1 and HTTP/2, synchronous send and asynchronous sendAsync. Requests have timeouts, headers and body handlers. HTTP status codes are application outcomes; successful transport does not imply business success.
+
+## 2. Core concepts
+
+Reuse HttpClient instances. Set connect/request timeouts. Validate destinations, handle non-2xx responses and define retry rules only for idempotent operations. Keep secrets out of logs and never disable TLS validation.
+
+## 3. Design guidance
+
+The demo introduces Java HttpClient. A production client should configure timeouts, inspect status/content type, parse bodies safely, and handle I/O and interruption failures.
+
+## 4. Example walkthrough
+
+Do not blindly retry non-idempotent requests. Network calls can stall or fail. Validate redirect/destination behavior when handling untrusted URIs.
+
+## 5. Common mistakes and edge cases
+
+https://docs.oracle.com/en/java/javase/25/docs/api/java.net.http/java/net/http/HttpClient.html · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/package-summary.html
+
+## 6. Run and experiment
+
+From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
+
+## 7. Official references
+
+undefined
