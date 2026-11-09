@@ -64,6 +64,7 @@ mvn clean verify
 | SOLID principles | `solidprinciples` | [Guide](src/main/java/com/learnjava/solidprinciples/README.md) |
 | Nested and inner classes | `innerclasses` | [Guide](src/main/java/com/learnjava/innerclasses/README.md) |
 | JVM, memory model and garbage collection | `jvm` | [Guide](src/main/java/com/learnjava/jvm/README.md) |
+| Modern Java language features and release history | `languagefeatures` | [Guide](src/main/java/com/learnjava/languagefeatures/README.md) |
 
 ## How to study each topic
 
