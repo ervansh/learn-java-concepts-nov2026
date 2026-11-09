@@ -1,5 +1,12 @@
 package com.learnjava.jvm;
-public class JvmDemo {
- static class TestData {private final byte[] payload=new byte[1024];int size(){return payload.length;}}
- public static void main(String[] args){TestData data=new TestData();System.out.println("Payload bytes: "+data.size());data=null;System.out.println("Object may be garbage-collected when unreachable.");}
+public final class JvmDemo {
+ private JvmDemo() { }
+ private static final class Payload { private final byte[] bytes=new byte[1024]; int size(){return bytes.length;} }
+ public static void main(String[] args) {
+  Runtime runtime=Runtime.getRuntime();
+  System.out.println("java="+System.getProperty("java.version"));
+  System.out.println("vm="+System.getProperty("java.vm.name"));
+  System.out.println("processors="+runtime.availableProcessors());
+  Payload payload=new Payload(); System.out.println("payload bytes="+payload.size());
+ }
 }
