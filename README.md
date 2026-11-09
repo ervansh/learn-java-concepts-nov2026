@@ -56,6 +56,8 @@ Replace the class name with the fully qualified class in the table. The JDBC exa
 | Design patterns | `com.learnjava.designpatterns` | [README](src/main/java/com/learnjava/designpatterns/README.md) |
 | SOLID principles | `com.learnjava.solidprinciples` | [README](src/main/java/com/learnjava/solidprinciples/README.md) |
 | Wrapper classes | `com.learnjava.wrappers` | [README](src/main/java/com/learnjava/wrappers/README.md) |
+| Nested and inner classes | `com.learnjava.innerclasses` | [README](src/main/java/com/learnjava/innerclasses/README.md) |
+| JVM and garbage collection | `com.learnjava.jvm` | [README](src/main/java/com/learnjava/jvm/README.md) |
 
 ## Suggested study sequence
 
