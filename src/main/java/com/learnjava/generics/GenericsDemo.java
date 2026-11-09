@@ -1,7 +1,11 @@
 package com.learnjava.generics;
 import java.util.*;
-class ApiResult<T>{private final T body;ApiResult(T body){this.body=body;}T getBody(){return body;}}
-public class GenericsDemo {
- static double sum(List<? extends Number> values){double total=0;for(Number n:values)total+=n.doubleValue();return total;}
- public static void main(String[] args){ApiResult<String> result=new ApiResult<String>("created");System.out.println(result.getBody());System.out.println(sum(Arrays.<Number>asList(10,2.5,3)));}
+public final class GenericsDemo {
+ private GenericsDemo() { }
+ private static <T> void copy(List<? extends T> source,List<? super T> target) { for(T item:source) target.add(item); }
+ public static void main(String[] args) {
+  ApiResult<String> result=new ApiResult<>("created");
+  List<Number> numbers=new ArrayList<>(); copy(List.of(10,20,30),numbers);
+  System.out.println(result.body()); System.out.println(numbers);
+ }
 }

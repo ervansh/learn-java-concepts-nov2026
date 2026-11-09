@@ -1,6 +1,12 @@
 package com.learnjava.exceptions;
-class TestDataException extends Exception {TestDataException(String message){super(message);}}
-public class ExceptionsDemo {
- static void validate(int status)throws TestDataException{if(status<200||status>=300)throw new TestDataException("Unexpected status "+status);}
- public static void main(String[] args){try{validate(503);}catch(TestDataException e){System.err.println(e.getMessage());}finally{System.out.println("Validation finished");}}
+public final class ExceptionsDemo {
+ private ExceptionsDemo() { }
+ private static int parsePositive(String raw) throws DataFormatException {
+  try { int value=Integer.parseInt(raw); if(value<=0) throw new DataFormatException("Value must be positive",null); return value; }
+  catch(NumberFormatException cause) { throw new DataFormatException("Expected an integer: "+raw,cause); }
+ }
+ public static void main(String[] args) {
+  try { System.out.println(parsePositive("24")); }
+  catch(DataFormatException failure) { System.err.println(failure.getMessage()); }
+ }
 }
