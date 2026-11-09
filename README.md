@@ -70,7 +70,7 @@ mvn clean verify
 
 1. Read its README from top to bottom.
 2. Inspect every source file in that topic's package. Public top-level types should have their own source files.
-3. Run the demo class named in that topic's README.
+3. Run the `*Demo.java` class in that topic's package.
 4. Change the example, predict the result, and run it again.
 5. Review the edge cases, trade-offs, and official references.
 
