@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-List preserves order and allows duplicates; Set enforces uniqueness; Queue/Deque model processing order; Map associates keys and values but is not a Collection. ArrayList offers indexed access and amortized append; HashMap/HashSet use hashing; LinkedHashMap/Set preserve insertion order; TreeMap/Set sort; ArrayDeque is preferred over legacy Stack.
+Lists preserve encounter order and allow duplicates; sets enforce uniqueness; queues and deques model processing order; maps associate keys with values and are not subtypes of Collection. ArrayList supports indexed access; HashMap/HashSet use hashing; linked variants preserve insertion order; TreeMap/TreeSet maintain sorted order; ArrayDeque is usually preferable to legacy Stack.
 
 ## 2. Core concepts
 
-Choose by required semantics first, then complexity. Hash-based collections rely on equals/hashCode; sorted structures rely on ordering. Map iteration order is unspecified unless implementation says otherwise. Use immutable copies at API boundaries. ConcurrentHashMap does not make arbitrary compound workflows atomic.
+A collection's interface describes semantics; the implementation determines ordering, performance and concurrency properties. Hash collections depend on stable equals/hashCode. Sorted collections depend on Comparable or Comparator. Map iteration order is implementation-dependent. Iterators may be fail-fast as a best-effort bug detector, not a synchronization mechanism.
 
 ## 3. Design guidance
 
-The demo counts repeated event names with a map and derives unique values with a linked set. Extend it to compare lookup, ordering, iteration and removal behavior.
+Choose the data structure from required behavior first, then compare time/space complexity. Use immutable copies when publishing data. Use concurrent collections for concurrent access, while still designing compound operations atomically.
 
 ## 4. Example walkthrough
 
-Mutable keys whose equality/hashCode changes can become unreachable. Fail-fast iterators are best-effort bug detection, not thread safety. Do not structurally modify collections during ordinary iteration.
+The demo counts repeated event names with a map and derives unique values with a linked set. Extend it by comparing insertion order, sorted order, indexed access and removal behavior across implementations.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/package-summary.html · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html
+Mutable keys whose equals/hashCode changes can become unreachable. HashMap order is unspecified. Do not structurally modify a collection during ordinary iteration. Fail-fast does not mean thread-safe.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations. Compile success does not prove behavior against external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/package-summary.html · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html

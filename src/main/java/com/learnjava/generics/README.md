@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-Generics provide compile-time type safety. Java generic types are invariant: List<Integer> is not List<Number>. `? extends T` is a producer; `? super T` is a consumer (PECS). Type erasure removes most type parameters at runtime; bounds constrain operations.
+Generic classes, interfaces and methods; type parameters; bounds; wildcards; PECS; invariance; type erasure; raw types; bridge methods; generic array restrictions.
 
 ## 2. Core concepts
 
-Avoid raw types and unchecked casts. Use generic methods where input/output type relationships matter. Understand erasure when overloading. Keep bounds minimal and avoid over-generalization.
+Generics provide compile-time type safety. Java generic types are invariant: List<Integer> is not List<Number>. `? extends T` is a producer; `? super T` is a consumer. Type erasure removes most type arguments at runtime; bounds constrain operations available on type variables.
 
 ## 3. Design guidance
 
-The demo illustrates typed containers. Extend it with a generic copy method using `List<? extends T>` as source and `List<? super T>` as destination.
+Avoid raw types and unchecked casts. Use generic methods where input/output relationships matter. Apply PECS when callers benefit from variance. Keep bounds minimal and understand erasure when overloading or interoperating with legacy APIs.
 
 ## 4. Example walkthrough
 
-Type parameters cannot be primitives. `new T()` and generic array creation are generally illegal. Overloads cannot differ only by erased generic signatures.
+The demo uses a generic result wrapper and a copy method accepting a producer list and consumer list. Try copying Integer values into a List<Number> without unsafe casts.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/javase/tutorial/java/generics/ · https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html
+Type parameters cannot be primitives. `new T()` and generic array creation are generally illegal. Overloads cannot differ only by erased signatures. Avoid raw collections.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations. Compile success does not prove behavior against external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/javase/tutorial/java/generics/ · https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html

@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-Each primitive has a wrapper. Autoboxing converts primitive values to wrappers; unboxing can throw NullPointerException for null. Wrappers are immutable. Integer caching means identity comparisons may appear to work for some values but are not valid comparisons.
+Primitive wrapper types, autoboxing/unboxing, parsing, valueOf, caching, numeric conversions, comparison, null unboxing and BigDecimal.
 
 ## 2. Core concepts
 
-Use primitives for computation when absence is not meaningful; wrappers when nullability or generics require references. Compare values, not identities. Use BigDecimal with explicit scale/rounding for decimal business arithmetic.
+Each primitive has a wrapper class. Autoboxing converts primitive values to wrappers; unboxing converts wrappers to primitives and throws NullPointerException for null. Wrappers are immutable. Wrapper caching makes identity comparisons unreliable.
 
 ## 3. Design guidance
 
-The demo illustrates parsing and boxing. Extend it to handle nullable configuration explicitly and use BigDecimal(String) for monetary values.
+Use primitives for computation when absence is not meaningful; wrappers when nullability or generic APIs require references. Compare values, not identities. Use BigDecimal with explicit scale and rounding for decimal business arithmetic.
 
 ## 4. Example walkthrough
 
-Never compare wrappers with ==. Unboxing null throws. Narrowing conversions can overflow. BigDecimal(double) can preserve binary approximation.
+The demo illustrates boxing/unboxing and BigDecimal construction from a decimal string. Extend it with nullable input handling and overflow-safe conversions.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html
+Never compare wrappers with ==. Unboxing null throws. Narrowing conversions can overflow. BigDecimal(double) may preserve binary floating-point approximation.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations. Compile success does not prove behavior against external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html
