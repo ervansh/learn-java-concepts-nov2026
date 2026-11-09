@@ -24,7 +24,7 @@ System.gc is only a request. Reachable objects can still be retained accidentall
 
 ## 6. Run and experiment
 
-From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide and add boundary cases. JDBC requires a compatible driver, database and schema; networking requires a reachable endpoint. Compilation alone does not validate external systems.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
