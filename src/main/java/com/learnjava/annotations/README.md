@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-Annotations attach metadata to declarations. Retention is SOURCE, CLASS or RUNTIME. Target restricts applicable elements. Repeatable annotations allow multiple instances. Annotation processors inspect program elements at compile time.
+Built-in annotations, custom annotation declarations, retention policies, targets, repeatable annotations, annotation processing and runtime reflection.
 
 ## 2. Core concepts
 
-Use annotations for declarative metadata, frameworks and compile-time checks. Prefer compile-time processing where possible. Document inheritance, retention and processing behavior. Keep custom annotations semantically precise.
+Annotations attach metadata to declarations. SOURCE is discarded by the compiler; CLASS is stored in class files; RUNTIME is available through reflection. @Target restricts where an annotation applies. Annotation processors inspect source-level elements at compile time.
 
 ## 3. Design guidance
 
-The demo illustrates annotation declaration/discovery. Extend it with a separate public annotation type, @Target, @Retention(RUNTIME), and reflection lookup.
+Use annotations for declarative metadata, frameworks and compile-time checks. Prefer compile-time processing where possible. Document inheritance, retention and processing behavior. Keep custom annotations semantically precise.
 
 ## 4. Example walkthrough
 
-Annotations do not execute behavior automatically. Retention determines metadata availability. @Inherited applies only to class annotations and has specific rules.
+The demo defines a runtime method annotation in its own source file and reads its value through reflection. Extend it with @Repeatable and a processor.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html#jls-9.6 · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/package-summary.html
+Annotations do not execute behavior automatically. Retention determines metadata availability. @Inherited applies only to class annotations and has specific rules.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide, add boundary cases, and compare alternative implementations.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html#jls-9.6 · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/annotation/package-summary.html

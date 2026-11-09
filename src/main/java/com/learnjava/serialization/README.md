@@ -4,28 +4,28 @@
 
 ## 1. Scope
 
-Java serialization writes object graphs to byte streams. Serializable is a marker interface; serialVersionUID participates in compatibility checks; transient excludes fields from default serialization. Deserialization reconstructs object graphs and may invoke class-specific hooks.
+Serializable, serialVersionUID, transient fields, object graphs, serialization filters, compatibility and safer alternatives.
 
 ## 2. Core concepts
 
-Prefer explicit formats such as JSON or Protocol Buffers for interoperability. If native serialization is unavoidable, apply strict ObjectInputFilter allow-lists and validate reconstructed state. Never accept untrusted serialized input without deliberate security design.
+Java serialization converts object graphs to byte streams and reconstructs them. Serializable is a marker interface. serialVersionUID participates in compatibility checks. transient fields are excluded from default serialization. Deserialization may invoke class-specific hooks.
 
 ## 3. Design guidance
 
-The demo illustrates serialization mechanics. Treat it as an in-memory learning example only; do not expose ObjectInputStream to untrusted network/file content.
+Prefer explicit formats such as JSON or Protocol Buffers for interoperability. If native serialization is unavoidable, use strict ObjectInputFilter allow-lists and validate reconstructed state. Never accept untrusted serialized input without deliberate security design.
 
 ## 4. Example walkthrough
 
-Native deserialization of untrusted data is dangerous. Compatibility requires planning. transient is not general secret management. Avoid serializing live resources.
+The demo serializes a small value object to an in-memory byte array and reads it back. The transient diagnostic context is not restored; this is a mechanics example, not a network-input pattern.
 
 ## 5. Common mistakes and edge cases
 
-https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/ · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/ObjectInputFilter.html
+Native deserialization of untrusted data is dangerous. Compatibility requires planning. transient is not general secret management. Avoid serializing live resources or framework objects.
 
 ## 6. Run and experiment
 
-From the repository root run `mvn clean verify`, then execute the demo class in this package. Inspect the source alongside this guide, add boundary cases, and compare alternative implementations.
+From the repository root, run `mvn clean verify`, then execute the demo class in this package. Inspect its source alongside this guide, add boundary cases, and compare alternative implementations.
 
 ## 7. Official references
 
-undefined
+https://docs.oracle.com/en/java/javase/25/docs/specs/serialization/ · https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/ObjectInputFilter.html
