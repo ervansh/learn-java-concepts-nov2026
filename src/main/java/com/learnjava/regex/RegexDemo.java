@@ -1,5 +1,10 @@
 package com.learnjava.regex;
 import java.util.regex.*;
-public class RegexDemo {
- public static void main(String[] args){Pattern p=Pattern.compile("^(PASS|FAIL):\\s+(.+)$");Matcher m=p.matcher("FAIL: checkout not visible");if(m.matches()){System.out.println(m.group(1));System.out.println(m.group(2));}}
+public final class RegexDemo {
+ private static final Pattern VERSION=Pattern.compile("(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)");
+ private RegexDemo() { }
+ public static void main(String[] args) {
+  Matcher matcher=VERSION.matcher("release-25.1.3");
+  if(matcher.find()) System.out.printf("major=%s minor=%s patch=%s%n",matcher.group("major"),matcher.group("minor"),matcher.group("patch"));
+ }
 }
