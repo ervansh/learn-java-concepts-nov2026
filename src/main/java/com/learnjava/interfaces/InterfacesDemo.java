@@ -1,10 +1,14 @@
 package com.learnjava.interfaces;
-interface Browser {
- void open(String url);
- default void maximize(){System.out.println("Window maximized");}
- static boolean supported(String name){return "chrome".equalsIgnoreCase(name)||"firefox".equalsIgnoreCase(name);}
-}
-class ChromeBrowser implements Browser { public void open(String url){System.out.println("Chrome opens "+url);} }
-public class InterfacesDemo {
- public static void main(String[] args){Browser browser=new ChromeBrowser();browser.open("https://example.com");browser.maximize();System.out.println(Browser.supported("chrome"));}
+
+/** Demonstrates programming to an interface rather than an implementation. */
+public final class InterfacesDemo {
+    private InterfacesDemo() { }
+
+    public static void main(String[] args) {
+        ReportWriter writer = new CsvReportWriter();
+        String result = writer.write("monthly-summary", "passed,failed\n42,2");
+        System.out.println(result);
+        System.out.println("Valid name: " + ReportWriter.isValidName("monthly-summary"));
+        System.out.println("Supports empty reports: " + writer.supportsEmptyReports());
+    }
 }
